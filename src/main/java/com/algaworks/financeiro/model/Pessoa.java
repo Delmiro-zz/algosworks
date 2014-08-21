@@ -9,7 +9,7 @@ import javax.persistence.Table;
 @Entity
 @Table(name = "pessoa")
 public class Pessoa {
-
+	
 	private Long id;
 	private String nome;
 
