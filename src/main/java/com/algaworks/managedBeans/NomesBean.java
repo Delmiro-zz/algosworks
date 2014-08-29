@@ -13,8 +13,12 @@ public class NomesBean {
 	private String nome;
 	private List<String> nomes = new ArrayList<>();
 
-	public void adicionar() {
+	public String adicionar() {
 		this.nomes.add(nome);
+		if(this.nomes.size() > 3 ){
+			return "Ola";
+		}
+		return "Ola?faces-redirect=true";
 	}
 
 	public String getNome() {
