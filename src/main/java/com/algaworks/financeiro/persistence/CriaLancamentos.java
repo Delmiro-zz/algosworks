@@ -20,7 +20,7 @@ public class CriaLancamentos {
 		Calendar dataVencimento2 = Calendar.getInstance();
 		dataVencimento2.set(2013, 12, 10, 0, 0, 0);
 		Pessoa cliente = new Pessoa();
-		cliente.setNome("WWW Indústria de Alimentos");
+		cliente.setNome("Indústria de Alimentos");
 		Pessoa fornecedor = new Pessoa();
 		fornecedor.setNome("SoftBRAX Treinamentos");
 		Lancamento lancamento1 = new Lancamento();

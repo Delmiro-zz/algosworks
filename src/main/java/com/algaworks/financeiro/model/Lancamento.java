@@ -14,6 +14,10 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.NotEmpty;
 
 @Entity
 @Table(name = "lancamento")
@@ -36,7 +40,7 @@ public class Lancamento {
 	public void setId(Long id) {
 		this.id = id;
 	}
-
+	@NotNull
 	@ManyToOne(optional = false)// entender melhor essa anotação
 	@JoinColumn(name = "pessoa_id")
 	public Pessoa getPessoa() {
@@ -46,7 +50,9 @@ public class Lancamento {
 	public void setPessoa(Pessoa pessoa) {
 		this.pessoa = pessoa;
 	}
-
+	@NotEmpty
+	@Size(max=80)
+	@Column(length=80, nullable=false)
 	public String getDescricao() {
 		return descricao;
 	}
@@ -64,6 +70,7 @@ public class Lancamento {
 		this.valor = valor;
 	}
 
+	@NotNull
 	@Enumerated(EnumType.STRING)
 	@Column(nullable = false)
 	public TipoLancamento getTipo() {
