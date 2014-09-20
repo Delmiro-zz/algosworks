@@ -30,7 +30,8 @@ public class Lancamento {
 	private TipoLancamento tipo;
 	private Date dataVencimento;
 	private Date dataPagamento;
-
+	
+	
 	@Id
 	@GeneratedValue
 	public Long getId() {

@@ -56,7 +56,7 @@
 
 				<p:outputLabel value="Data de pagamento" for="dataPagamento" />
 				<p:calendar size="12" id="dataPagamento" pattern="dd/MM/yyyy"
-					value="#{cadastroLancamentoBean.lancamento.dataPagamento}" />
+					value="#{lancamentoController.lancamento.dataPagamento}" />
 
 				<p:outputLabel></p:outputLabel>
 				<p:commandButton icon="ui-icon-disk" update="@form" value="Salvar"

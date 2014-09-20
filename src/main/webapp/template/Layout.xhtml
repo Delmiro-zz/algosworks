@@ -1,25 +1,42 @@
 <!DOCTYPE html>
-<html 
-xmlns="http://www.w3.org/1999/xhtml" 
-xmlns:f="http://xmlns.jcp.org/jsf/core" 
-xmlns:h="http://xmlns.jcp.org/jsf/html" 
-xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
-	<title>
-		<ui:insert name="titulo">Sistema Financeiro</ui:insert>
+	<title><ui:insert name="titulo">Sistema Financeiro</ui:insert>
 	</title>
-	<link rel="stylesheet" type="text/css" href="/algosworks/css/estilo.css" />
-<!-- 	<h:outputStylesheet library="css" name="estilo.css" /> -->
+	<link rel="stylesheet" type="text/css"
+		href="/algosworks/css/estilo.css" />
+		<h:outputStylesheet library="css" name="estilo.css" />
 </h:head>
 <h:body>
-	
-		<h:graphicImage url="/images/logo.png" />
-		
-	<div id="conteudo">
-		<ui:insert name="corpo" />
-	</div>
-	<hr></hr>
-	<footer> Sistema Financeiro</footer>
+	<h:form>
+		<p:menubar style="margin-top: -5px; margin-bottom:22px;  ">
+			<p:submenu label="Cadastro">
+				<p:menuitem value="Pessoa" />
+				<p:menuitem value="Lançamento"
+					action="/paginaDeCadastro?faces-redirect=true" />
+			</p:submenu>
+
+			<p:submenu label="Consulta">
+				<p:menuitem value="Pessoa" />
+				<p:menuitem value="Lançamentos"
+					action="/ConsultaLancamentos?faces-redirect=true" />
+			</p:submenu>
+
+			<p:submenu label="Sistema">
+				<p:menuitem value="Sair" />
+			</p:submenu>
+		</p:menubar>
+	</h:form>
 </h:body>
+<h:graphicImage url="/images/logo.png" />
+<div id="conteudo">
+	<ui:insert name="corpo" />
+</div>
+<hr></hr>
+<footer> Sistema Financeiro</footer>
 </html>
 
