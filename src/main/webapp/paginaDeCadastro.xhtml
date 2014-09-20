@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<ui:composition template="template/Layout.xhtml" 
-				xmlns="http://www.w3.org/1999/xhtml" 
-				xmlns:f="http://xmlns.jcp.org/jsf/core"
-				xmlns:h="http://xmlns.jcp.org/jsf/html"
-				xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
-				xmlns:p="http://primefaces.org/ui">
+<ui:composition template="/template/Layout.xhtml"
+	xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:p="http://primefaces.org/ui">
 	<f:metadata>
 		<f:viewAction action="#{lancamentoController.prepararCadastro}" />
 	</f:metadata>
@@ -14,44 +14,54 @@
 		<h:form id="frm">
 			<p:messages showDetail="false" showSummary="true" />
 			<p:panelGrid columns="2">
-				
+
 				<p:outputLabel value="Tipo" />
-				<p:selectOneRadio value="#{lancamentoController.lancamento.tipo}" label="Tipo do lançamento">
-					<f:selectItems value="#{lancamentoController.tipoLancamentos}" var="tipoLancamento" itemValue="#{tipoLancamento}" />
-				</p:selectOneRadio>
-				
+				<p:selectOneButton value="#{lancamentoController.lancamento.tipo}"
+					label="Tipo do lançamento">
+					<f:selectItems value="#{lancamentoController.tipoLancamentos}"
+						var="tipoLancamento" itemValue="#{tipoLancamento}" />
+				</p:selectOneButton>
+
 				<p:outputLabel value="Pessoa" />
-				<p:selectOneMenu value="#{lancamentoController.lancamento.pessoa}" label="Pessoa">
+				<p:selectOneMenu value="#{lancamentoController.lancamento.pessoa}"
+					label="Pessoa">
 					<f:selectItem itemLabel="Selecione" noSelectionOption="true" />
-					<f:selectItems value="#{lancamentoController.listaDePessoas}" var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
+					<f:selectItems value="#{lancamentoController.listaDePessoas}"
+						var="pessoa" itemValue="#{pessoa}" itemLabel="#{pessoa.nome}" />
 				</p:selectOneMenu>
-				
+
 				<p:outputLabel value="Descrição" />
-				<p:inputText size="60" value="#{lancamentoController.lancamento.descricao}" label="Descrição" />
-				
+				<p:inputText size="60"
+					value="#{lancamentoController.lancamento.descricao}"
+					label="Descrição" />
+
 				<p:outputLabel value="Valor" />
-				<p:inputText size="12" value="#{lancamentoController.lancamento.valor}" label="Valor">
-					<f:convertNumber locale="pt_BR" maxFractionDigits="2" minFractionDigits="2" />
+				<p:inputText size="12"
+					value="#{lancamentoController.lancamento.valor}" label="Valor">
+					<f:convertNumber locale="pt_BR" maxFractionDigits="2"
+						minFractionDigits="2" />
 				</p:inputText>
-				
+
 				<p:outputLabel value="Data de vencimento" />
-				<p:calendar size="12" value="#{lancamentoController.lancamento.dataVencimento}" pattern="dd/MM/yyyy" label="Data de vencimento">
-					<f:ajax event="dateSelect"  
-							update="@this dataPagamento" 
-							process="@this dataPagamento" 
-							listener="#{lancamentoController.dataVencimentoAlterada}"/>
-					<f:ajax event="change"
-							update="@this dataPagamento"
-							process = "@this dataPagamento"
-							listener="#{lancamentoController.dataVencimentoAlterada}"/>		
+				<p:calendar size="12"
+					value="#{lancamentoController.lancamento.dataVencimento}"
+					pattern="dd/MM/yyyy" label="Data de vencimento">
+					<f:ajax event="dateSelect" update="@this dataPagamento"
+						process="@this dataPagamento"
+						listener="#{lancamentoController.dataVencimentoAlterada}" />
+					<f:ajax event="change" update="@this dataPagamento"
+						process="@this dataPagamento"
+						listener="#{lancamentoController.dataVencimentoAlterada}" />
 				</p:calendar>
-				
+
 				<p:outputLabel value="Data de pagamento" for="dataPagamento" />
-				<p:calendar size="12" id="dataPagamento" pattern="dd/MM/yyyy" value="#{cadastroLancamentoBean.lancamento.dataPagamento}" />
-				
+				<p:calendar size="12" id="dataPagamento" pattern="dd/MM/yyyy"
+					value="#{cadastroLancamentoBean.lancamento.dataPagamento}" />
+
 				<p:outputLabel></p:outputLabel>
-				<p:commandButton icon="ui-icon-disk" update="@form" value="Salvar" action="#{lancamentoController.salvar}" />
-			
+				<p:commandButton icon="ui-icon-disk" update="@form" value="Salvar"
+					action="#{lancamentoController.salvar}" />
+
 			</p:panelGrid>
 		</h:form>
 	</ui:define>
