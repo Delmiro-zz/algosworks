@@ -18,7 +18,7 @@ public class LancamentoService {
 		if (lancamento.getDataPagamento() != null && lancamento.getDataPagamento().after(new Date())) {
 			throw new NegocioException("Data do pagamento não pode ser maior que a data atual.");
 		}
-		this.lancamentos.adicionar(lancamento);
+		this.lancamentos.guardar(lancamento);
 	}
 
 }

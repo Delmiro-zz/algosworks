@@ -34,6 +34,9 @@ public class LancamentoController implements Serializable {
 		try {
 			Pessoas repository = new Pessoas(manager);
 			this.listaDePessoas = repository.listar();
+			if (this.lancamento == null) {
+				this.lancamento = new Lancamento();
+			}
 		} finally {
 			manager.close();
 		}
@@ -45,7 +48,8 @@ public class LancamentoController implements Serializable {
 		FacesContext context = FacesContext.getCurrentInstance();
 		try {
 			transaction.begin();
-			LancamentoService service = new LancamentoService(new Lancamentos(manager));
+			LancamentoService service = new LancamentoService(new Lancamentos(
+					manager));
 			service.salvar(lancamento);
 			this.lancamento = new Lancamento();
 			context.addMessage(null, new FacesMessage("Lançamento salvo com sucesso!"));

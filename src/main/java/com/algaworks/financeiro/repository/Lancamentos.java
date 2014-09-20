@@ -24,4 +24,12 @@ public class Lancamentos {
 		this.manager.persist(lancamento);
 	}
 	
+	
+	public Lancamento porId(Long id){
+		return manager.find(Lancamento.class, id);
+	}
+	
+	public Lancamento guardar(Lancamento lancamento){
+		return this.manager.merge(lancamento);
+	}
 }

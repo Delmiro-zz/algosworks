@@ -7,13 +7,11 @@
 <h:head>
 	<title><ui:insert name="titulo">Sistema Financeiro</ui:insert>
 	</title>
-	<link rel="stylesheet" type="text/css"
-		href="/algosworks/css/estilo.css" />
-		<h:outputStylesheet library="css" name="estilo.css" />
+	<h:outputStylesheet library="css" name="css/estilo.css" />
 </h:head>
 <h:body>
-	<h:form>
-		<p:menubar style="margin-top: -5px; margin-bottom:22px;  ">
+<h:form>
+		<p:menubar style="margin-top: -10px; margin-bottom:22px;  ">
 			<p:submenu label="Cadastro">
 				<p:menuitem value="Pessoa" />
 				<p:menuitem value="Lançamento"
@@ -31,12 +29,21 @@
 			</p:submenu>
 		</p:menubar>
 	</h:form>
-</h:body>
 <h:graphicImage url="/images/logo.png" />
 <div id="conteudo">
 	<ui:insert name="corpo" />
 </div>
 <hr></hr>
 <footer> Sistema Financeiro</footer>
+	<p:ajaxStatus styleClass="ajax-status"> 
+		<f:facet name="start">
+			<h:graphicImage library="algosworks" url="/images/indice.png" />		
+		</f:facet>
+		<f:facet name="complete">
+			<h:outputText value=""/>		
+		</f:facet>
+	</p:ajaxStatus>
+	</h:body>
+
 </html>
 
